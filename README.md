@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Contribution — *by M. Ali Adnan*
 
-## Getting Started
+**How to Contribute to Open Source** — a free, open book that takes you from your first issue to your first merge, step by step.
 
-First, run the development server:
+🌐 **Live:** [the-contribution.vercel.app](https://the-contribution.vercel.app) · 👤 [alicodez.com](https://alicodez.com) · 🔗 [LinkedIn](https://www.linkedin.com/in/%F0%9D%99%88%F0%9D%99%AA%F0%9D%99%9D%F0%9D%99%96%F0%9D%99%A2%F0%9D%99%A2%F0%9D%99%96%F0%9D%99%99-%F0%9D%98%BC%F0%9D%99%A1%F0%9D%99%9E-%F0%9D%98%BC%F0%9D%99%99%F0%9D%99%A3%F0%9D%99%96%F0%9D%99%A3-48035a2b8/)
+
+## What's inside
+
+| | Chapter | You'll learn |
+|---|---|---|
+| 1 | Introduction to Open Source | What open source is, what you gain, how code actually gets merged |
+| 2 | Start Contributing | Fork/clone, git environment, finding issues meant for you |
+| 3 | Your First Pull Request | Read → change → PR → review → merge, the complete loop |
+| 4 | Contribute with OpenCode | An AI pair contributor that runs the PR loop with you |
+| 5 | Building a Reputation | Consistency, communication, leveling up to maintainer |
+
+Plus a preface, a 30-term glossary, and four theme-adaptive SVG diagrams woven into the text.
+
+Every claim in the book is backed by real merged work — [38 merged pull requests](https://github.com/search?q=author%3AAAliKKhan+is%3Apr+is%3Amerged&type=pullrequests) across Google ADK Docs, OpenAI Agents SDK, OpenClaw, and n8n Docs.
+
+## Tech
+
+- [Next.js 16](https://nextjs.org) (App Router, React 19) — statically prerendered
+- [Tailwind CSS 4](https://tailwindcss.com) with a CSS-variable design-token system
+- Instrument Serif + Geist Sans/Mono via `next/font`
+- Zero external UI dependencies — all components hand-built in `app/components/`
+- Light/dark themes, Ctrl+K search, scroll-spy TOC, reading progress, print stylesheet
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run start    # serve the build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Edit the book
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All content lives in a single file: [`app/data/book.ts`](app/data/book.ts) — chapters, sub-chapters, preface, glossary, author info, and stats. Both the landing page and the reader render from it.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
 
-## Learn More
+Pushed to GitHub and deployed on [Vercel](https://vercel.com). Any commit to `main` auto-deploys.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2026 M. Ali Adnan — The Contribution. Free to read, share, and learn from.
