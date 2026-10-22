@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (html.dark) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------- Design tokens ------------------------------- */
+:root {
+  /* light theme */
+  --bg: #f7f8f7;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --ink: #141a17;
+  --muted: #4b5751;
+  --faint: #77827c;
+  --line: #e3e7e5;
+  --accent: #059669;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(5, 150, 105, 0.09);
+  --shadow: 0 1px 3px rgb(0 0 0 / 0.08), 0 8px 24px rgb(0 0 0 / 0.06);
+}
+
+.dark {
+  /* dark theme */
+  --bg: #0a0f0d;
+  --surface: #0e1512;
+  --card: rgba(255, 255, 255, 0.035);
+  --ink: #ededed;
+  --muted: #9aa5a0;
+  --faint: #6f7b75;
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #10b981;
+  --accent-ink: #06281c;
+  --accent-soft: rgba(16, 185, 129, 0.09);
+  --shadow: none;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-instrument-serif);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-rendering: optimizeLegibility;
+}
+
+/* ------------------------------ Editorial system ---------------------------- */
+
+/* Small-caps section kicker, e.g. "01 — The book" */
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.eyebrow .num {
+  font-family: var(--font-geist-mono), monospace;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+/* Serif display headings (landing) */
+.font-display {
+  font-family: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Faint architectural grid behind the hero */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(75% 65% at 50% 0%, black 0%, transparent 78%);
+  mask-image: radial-gradient(75% 65% at 50% 0%, black 0%, transparent 78%);
+  opacity: 0.55;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Book article readability */
+.article-body {
+  font-size: 1.125rem;
+  line-height: 1.85;
+  max-width: 70ch;
+}
+
+/* Anchor-link affordance on headings */
+.heading-anchor {
+  opacity: 0;
+  margin-left: 0.5rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: opacity 0.15s ease;
+}
+h3:hover .heading-anchor,
+h3:focus-within .heading-anchor {
+  opacity: 0.7;
+}
+.heading-anchor:hover {
+  opacity: 1;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ------------------------------- Print styles ------------------------------- */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .article-body {
+    max-width: none;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+}
+
+/* ---------------------------- Landing logo marquee --------------------------- */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem; /* matches gap-6 spacing so the loop seam is invisible */
+  animation: marquee-scroll 32s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+}
