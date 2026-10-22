@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200" role="img" aria-label="How to Contribute to Open Source — book cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1512"/>
+      <stop offset="0.55" stop-color="#0e1f19"/>
+      <stop offset="1" stop-color="#06281c"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Cover background -->
+  <rect width="800" height="1200" fill="url(#bg)"/>
+  <rect width="800" height="1200" fill="url(#halo)"/>
+  <rect x="0" y="0" width="800" height="14" fill="#10b981"/>
+
+  <!-- Spine hint -->
+  <rect x="0" y="0" width="10" height="1200" fill="#10b981" opacity="0.55"/>
+
+  <!-- Git-graph motif: nodes + edges -->
+  <g stroke="#10b981" fill="none" stroke-width="4" opacity="0.9">
+    <path d="M 140 880 C 240 880, 260 800, 360 800" stroke-dasharray="0"/>
+    <path d="M 360 800 C 470 800, 500 920, 620 920"/>
+    <path d="M 360 800 C 450 800, 470 720, 580 720" stroke-dasharray="12 10" opacity="0.7"/>
+  </g>
+  <g>
+    <circle cx="140" cy="880" r="18" fill="#10b981"/>
+    <circle cx="360" cy="800" r="18" fill="#0b1512" stroke="#10b981" stroke-width="6"/>
+    <circle cx="620" cy="920" r="18" fill="#10b981"/>
+    <circle cx="580" cy="720" r="14" fill="#0b1512" stroke="#10b981" stroke-width="5" opacity="0.8"/>
+  </g>
+
+  <!-- Branch/PR labels -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26" fill="#6ee7b7">
+    <text x="118" y="938">main</text>
+    <text x="546" y="676">fix/issue-42</text>
+    <text x="560" y="978">merged ✓</text>
+  </g>
+
+  <!-- Octopus / GitHub mark suggestion -->
+  <g transform="translate(360 240)" opacity="0.95">
+    <circle cx="40" cy="46" r="46" fill="#10b981"/>
+    <g fill="#06281c">
+      <circle cx="26" cy="42" r="7"/>
+      <circle cx="54" cy="42" r="7"/>
+      <path d="M 14 66 Q 40 84 66 66 L 66 74 Q 40 94 14 74 Z"/>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#ffffff">
+    <text x="70" y="470" font-size="86" font-weight="700">How to</text>
+    <text x="70" y="566" font-size="86" font-weight="700">Contribute to</text>
+    <text x="70" y="662" font-size="86" font-weight="700" fill="#6ee7b7">Open Source</text>
+  </g>
+
+  <!-- Subtitle rule + text -->
+  <rect x="72" y="704" width="180" height="5" fill="#10b981"/>
+  <g font-family="Helvetica, Arial, sans-serif" fill="#c7d2cd" font-size="32">
+    <text x="72" y="768">A practical guide — from your first</text>
+    <text x="72" y="810">issue to your first merged pull request</text>
+  </g>
+
+  <!-- Author -->
+  <g font-family="Helvetica, Arial, sans-serif">
+    <text x="72" y="1110" font-size="40" font-weight="700" fill="#ffffff">M. Ali Adnan</text>
+    <text x="72" y="1152" font-size="28" fill="#6ee7b7">@AAliKKhan</text>
+  </g>
+
+  <!-- Volume badge -->
+  <g transform="translate(620 90)">
+    <rect width="120" height="56" rx="28" fill="none" stroke="#10b981" stroke-width="3"/>
+    <text x="60" y="37" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#6ee7b7">v1.0</text>
+  </g>
+</svg>
